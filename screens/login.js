@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, TextInput, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet,Button , TextInput, ImageBackground } from 'react-native';
 
-export default function Login() {
+export default function Login({navigation}) {
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -24,6 +24,13 @@ export default function Login() {
             style={styles.entrada}
             placeholder="Senha"
             placeholderTextColor="#000"
+          />
+          <Button 
+          
+          width="100px"
+          color={'#FF0000'}
+          title="Login"
+          onPress={() => navigation.navigate('Home')}
           />
 
         
