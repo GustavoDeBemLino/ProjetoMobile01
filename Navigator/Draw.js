@@ -8,7 +8,7 @@ import Login from './screens/login.js'
 import Home from './screens/home.js'
 
 
-export default function App() {
+export default function Draw() {
   const Drawer = createDrawerNavigator()
   return (
     <NavigationContainer>
@@ -19,6 +19,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-
-
