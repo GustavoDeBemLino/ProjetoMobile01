@@ -1,4 +1,6 @@
 import { View, Text, StyleSheet,Button , TextInput, ImageBackground } from 'react-native';
+import AntDesign from '@expo/vector-icons/AntDesign';
+
 
 export default function Login({navigation}) {
   return (
@@ -8,7 +10,8 @@ export default function Login({navigation}) {
         source={{ uri: 'https://diariodorio.com/wp-content/uploads/2020/07/daleopizzaria_20200710_144435_0-696x463.jpg' }}
       >
         <View style={styles.formularioContainer}>
-          <Text style={styles.title}>Cadastre-se</Text>
+          <Text style={styles.title}>Login</Text>
+          <AntDesign name="login" size={24} color="black" />
 
           <TextInput
             style={styles.entrada}
