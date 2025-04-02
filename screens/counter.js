@@ -1,7 +1,7 @@
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Button } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import Button from '../Navigator/Button';
+import BottomTabs from '../Navigator/BottomTabs.js';
 import {useState} from 'react'
 
 
@@ -15,6 +15,9 @@ export default function Counter() {
     }
     function Diminuir(){
         setContador(contador-1);
+        if(contador=0){
+
+        }
     }
 
   return (
@@ -24,15 +27,19 @@ export default function Counter() {
         source={{ uri: 'https://diariodorio.com/wp-content/uploads/2020/07/daleopizzaria_20200710_144435_0-696x463.jpg' }}
       >
         <View style={styles.textCont}>
-          <Text style={styles.title}>Contador</Text>
+          <Text style={styles.title}>Contador de Pizzas Comidas</Text>
+          
+          <View style={styles.butons}>
           <Button
           title='+'
           color={'#FA8072'}
           />
-          <Button
+          <Button style={styles.buton}
+          
           title='-'
-          color={''}
+          color={'#rgb(197, 80, 41)'}
           />
+          </View>
 
           
         </View>
@@ -58,10 +65,11 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   textCont: {
+    
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(228, 81, 81, 0.75)', 
-    fontSize:15,
+    backgroundColor: 'rgba(151, 97, 26, 0.75)', 
+    fontSize:10,
     padding: 10,
     borderRadius: 10,
     width: '90%',
@@ -70,7 +78,7 @@ const styles = StyleSheet.create({
     fontSize:30,
   },
   title: {
-    fontSize: 30,
+    fontSize: 20,
     color: '#fff',
     marginBottom: 20,
     fontWeight: 'bold',
@@ -82,4 +90,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     textAlign: 'center',
   },
+  buton:{
+    width:50,
+  },
+  butons: {
+    flexDirection:'row',
+  }
 });
