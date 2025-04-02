@@ -1,9 +1,8 @@
-import { View, Text, StyleSheet, ImageBackground, Button } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Button, TouchableOpacity } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import BottomTabs from '../Navigator/BottomTabs.js';
 import {useState} from 'react'
-
 
 
 
@@ -40,7 +39,7 @@ export default function Counter() {
           color={'#rgb(197, 80, 41)'}
           />
           </View>
-
+        <TouchableOpacity></TouchableOpacity>
           
         </View>
         
