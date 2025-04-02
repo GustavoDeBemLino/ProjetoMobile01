@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet,Button , TextInput, ImageBackground } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
-
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function Login({navigation}) {
   return (
@@ -11,7 +11,9 @@ export default function Login({navigation}) {
       >
         <View style={styles.formularioContainer}>
           <Text style={styles.title}>Login</Text>
-          <AntDesign name="login" size={24} color="black" />
+          <AntDesign name="login" size={30} color="white" />
+
+          <MaterialIcons name="home" size={30} color="white" />
 
           <TextInput
             style={styles.entrada}
@@ -33,7 +35,7 @@ export default function Login({navigation}) {
           width="100px"
           color={'#FF0000'}
           title="Login"
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('home')}
           />
 
         

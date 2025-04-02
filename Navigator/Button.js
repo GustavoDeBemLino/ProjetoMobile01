@@ -7,6 +7,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 import Login from './screens/login.js'
 import Home from './screens/home.js'
+import Feed from '.screens/feed.js'
 
 
 export default function Button() {
@@ -40,7 +41,15 @@ export default function Button() {
               <MaterialIcons name="home" size={30}></MaterialIcons>
           )
       }}
+
+        />
+        <Button.Screen name="Feed" component={Feed}
+        options={{
+          tabBarIcon: () =>(
+              <MaterialIcons name="feed" size={30}></MaterialIcons>
+          )
+        }}
         />
       </Button.Navigator>
     </NavigationContainer>
-  );
+  )};
