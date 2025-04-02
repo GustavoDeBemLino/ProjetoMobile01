@@ -4,7 +4,19 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Button from '../Navigator/Button';
 import {useState} from 'react'
 
-export default function Count() {
+
+
+
+export default function Counter() {
+    const [contador, setContador] = useState(0);
+
+    function Aumentar(){
+        setContador(contador+1);
+    }
+    function Diminuir(){
+        setContador(contador-1);
+    }
+
   return (
     <View style={styles.container}>
       <ImageBackground
