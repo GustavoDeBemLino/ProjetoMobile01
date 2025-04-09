@@ -20,34 +20,29 @@ export default function Counter() {
     }
 
   return (
+    
     <View style={styles.container}>
       <ImageBackground
-        style={styles.background}
-        source={{ uri: 'https://diariodorio.com/wp-content/uploads/2020/07/daleopizzaria_20200710_144435_0-696x463.jpg' }}
-      >
-        <View style={styles.textCont}>
-          <Text style={styles.title}>Contador de Pizzas Comidas</Text>
-          
-          <View style={styles.butons}>
-          <Button
-          title='+'
-          color={'#FA8072'}
-          />
-          <Button style={styles.buton}
-          
-          title='-'
-          color={'#rgb(197, 80, 41)'}
-          />
-          </View>
-        <TouchableOpacity></TouchableOpacity>
-          
+            style={styles.background}
+            source={{ uri: 'https://diariodorio.com/wp-content/uploads/2020/07/daleopizzaria_20200710_144435_0-696x463.jpg' }}
+          >
+    <Text style={styles.text}>Contador:</Text>
+    <View style={{flexDirection: 'row', justifyContent: 'space-between', width: "80%"}}>
+        <View style={{flex: 1, marginHorizontal: 5, marginVertical: 20}}>
+            <Button title="+" color="#800" onPress={Aumentar} />
         </View>
-        
-                 
-      </ImageBackground>
+        <View style={{flex: 1, marginHorizontal: 5, marginVertical: 20}}>
+            <Button title="-" color="#801" onPress={Diminuir} style={{fontSize: 20}}/>
+        </View>
     </View>
-  );
+    <View>
+        <Text style={{fontSize: 50, margin: 30, borderWidth: 2, borderRadius: 15, paddingVertical: 5, paddingHorizontal: 20, textAlign: 'center'}}>{contador}</Text>
+    </View>
+    </ImageBackground>
+</View>
+);
 }
+
 
 const styles = StyleSheet.create({
   container: {
