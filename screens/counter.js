@@ -1,20 +1,24 @@
-import { View, Text, StyleSheet, ImageBackground, Button, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Button,TextInput, TouchableOpacity } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import BottomTabs from '../Navigator/BottomTabs.js';
+import {BottomTabs} from '../Navigator/BottomTabs.js';
 import {useState} from 'react'
+
 
 
 
 export default function Counter() {
     const [contador, setContador] = useState(0);
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
 
     function Aumentar(){
         setContador(contador+1);
     }
     function Diminuir(){
+      if(contador>0){
         setContador(contador-1);
-        if(contador=0){
+        
 
         }
     }
@@ -37,6 +41,17 @@ export default function Counter() {
     </View>
     <View>
         <Text style={{fontSize: 50, margin: 30, borderWidth: 2, borderRadius: 15, paddingVertical: 5, paddingHorizontal: 20, textAlign: 'center'}}>{contador}</Text>
+    </View>
+    <View style={styles.TextInp}>
+      <TextInput
+        placeholder='Nome'
+        value={nome}
+      />
+      <TextInput
+        placeholder='Email'
+        value={email}
+      />
+     
     </View>
     </ImageBackground>
 </View>
@@ -91,3 +106,4 @@ const styles = StyleSheet.create({
     flexDirection:'row',
   }
 });
+//Colocar Touch

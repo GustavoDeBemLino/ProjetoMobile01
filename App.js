@@ -3,11 +3,12 @@ import 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 
-
+import Product from './screens/produto.js'
 import Feed from './screens/feed.js'
 import Login from './screens/1login.js'
 import Home from './screens/home.js'
@@ -28,6 +29,13 @@ function HomeTabs(){
     headerTintColor:'#000',
     }}>
 
+    <Bottom.Screen name='Product' component={Product}
+    options={{
+      tabBarIcon: () =>(
+          <Ionicons name="product" size={30}></Ionicons>
+      )
+  }}
+    />
     <Bottom.Screen name="Home" component={Home}
     options={{
       tabBarIcon: () =>(
@@ -59,8 +67,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="login" component={Login}/>
-        <Stack.Screen name="home" component={HomeTabs}></Stack.Screen>
+        <Stack.Screen name="1login" component={Login}/>
+        <Stack.Screen name="home" component={HomeTabs}/>
 
 
       </Stack.Navigator>
