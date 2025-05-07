@@ -5,10 +5,10 @@ export default function Cards({nome, valor, imagem}){
     
     return(
           <View style={styles.card}>
-            <View>
+            <View style={styles.contImg}>
                 <Image style={styles.img} source={{uri:imagem}}/>
             </View>
-            <View>
+            <View style={styles.contText}>
                 <Text style={styles.name}>{nome}</Text>
                 <Text style={styles.value}>{valor}</Text>
             </View>
@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
   
+    contText:{
+        flex:1,
+    },
     name:{
         fontsize:'15',
 
@@ -39,6 +42,7 @@ const styles = StyleSheet.create({
         height:100,
         borderRadius:'8'
     }
+    
    
 
 })
