@@ -40,13 +40,13 @@ export default function Signin({navigation}) {
         {/* Alterado o <input> para <Button> */}
         <Button 
           title="Cadastrar" 
-          color="#00ff"
+          color="#ff0000"
           onPress={cadastroUser}
         />
         <Button 
           title="Voltar ao login" 
           onPress={() => navigation.navigate('1login')}
-          color="#00ff"
+          color="#ff0000"
         />
       
     </View>

@@ -28,8 +28,9 @@ export default function Product(){
     }, []);
     return(
     <View style={styles.container}>
+        
         <Text style={styles.text}>Produtos</Text>
-        <FlatList            
+        <FlatList          
         data = {products}
         renderItem={({item}) => (
             <Cards
@@ -47,11 +48,12 @@ export default function Product(){
 const styles = StyleSheet.create({
     container:{
         flex:2,
+        
     },
-
+    
     text:{
         fontsize:'30',
-        color:"#412"
+        color:"#FF0000"
     },
 
 

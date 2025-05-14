@@ -14,6 +14,7 @@ import Login from './screens/1login.js'
 import Home from './screens/home.js'
 import Counter from './screens/counter.js'
 import Signin from './screens/signin.js';
+import AddProduct from './screens/cadastroProduto.js';
 
 function HomeTabs(){
   const Bottom = createBottomTabNavigator();
@@ -36,6 +37,10 @@ function HomeTabs(){
           <Ionicons name="product" size={30}></Ionicons>
       )
   }}
+    />
+    <Bottom.Screen name='CadastroProduct' componen={AddProduct}
+    options
+
     />
     <Bottom.Screen name="Home" component={Home}
     options={{
