@@ -1,14 +1,34 @@
-import { View, Text, StyleSheet,Button , TextInput, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet,Button , TextInput, ImageBackground, TouchableOpacity } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import {auth} from '../controller.js';
+import { useState } from 'react';
+
+
 
 export default function Login({navigation}) {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+
+  const VerificarUser = () => {
+    signInWithEmailAndPassword(auth,email,senha).then(userCredential => {
+      console.log('erro em logar', userCredential.user.email)
+      navigation.navigate('home');
+    })
+    .catch((error) => {
+      console.log('erro em logar', error.message);
+    })
+  }
+ 
+ 
   return (
     <View style={styles.container}>
       <ImageBackground
         style={styles.background}
         source={{ uri: 'https://diariodorio.com/wp-content/uploads/2020/07/daleopizzaria_20200710_144435_0-696x463.jpg' }}
       >
+
         <View style={styles.formularioContainer}>
           <Text style={styles.title}>Login</Text>
           <AntDesign name="login" size={30} color="white" />
@@ -19,30 +39,43 @@ export default function Login({navigation}) {
             style={styles.entrada}
             placeholder="Nome"
             placeholderTextColor="#000"
+         
           />
           <TextInput
             style={styles.entrada}
             placeholder="Email"
             placeholderTextColor="#000"
+            value={email}
+            onChangeText={setEmail}
+
           />
+
           <TextInput
             style={styles.entrada}
             placeholder="Senha"
             placeholderTextColor="#000"
+            value={senha}
+            onChangeText={setSenha}
+            secureTextEntry = {true}
           />
+          </View>
+
           <Button 
-          
+          title="Entrar"
           width="100px"
           color={'#FF0000'}
-          title="Login"
-          onPress={() => navigation.navigate('home')}
+          onPress={VerificarUser}
           />
+
+          <TouchableOpacity onPress={() => navigation.navigate('cadastro')}>
+          <Text style={styles.textCadastro}>Cadastre-se</Text>
+          </TouchableOpacity>
 
         
           <Text style={styles.telefone}>
             Para mais informações, nos contate. WhatsApp: 11 1234-5678
           </Text>
-        </View>
+        
       </ImageBackground>
     </View>
   );
@@ -90,4 +123,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
     textAlign: 'center',
   },
+  textCadastro:{
+    fontSize: 25,
+    color: '#FF0000'
+  }
 });

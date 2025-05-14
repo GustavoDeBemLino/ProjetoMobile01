@@ -1,13 +1,31 @@
-import {View, StyleSheet, Text, FlatList  } from 'react-native'
-import {useState} from 'react'
-import Cards from '../components/card'
+import {View, StyleSheet, Text, FlatList  } from 'react-native';
+import {useState, useEffect} from 'react';
+import Cards from '../components/card';
+import { bank } from '../controller';
+import {collection, getDocs } from 'firebase/firestore';
 
 export default function Product(){
     const [products, setProdutos] = useState([
-        {id:1, nome:'bala', valor:2, imagem: "https://http2.mlstatic.com/D_NQ_NP_2X_673972-MLB52142730746_102022-F.jpg"},
-        {id:2, nome:'coca-cola', valor:15.1, imagem: "https://th.bing.com/th/id/OIP.RY1iu8DUkiaAXwcds2Bj9wDKE1?rs=1&pid=ImgDetMain"},
-        {id:3, nome:'acai', valor:27.99, imagem: "https://th.bing.com/th/id/OIP.REzYpQDscs50-jKWaMNpuQHaHa?rs=1&pid=ImgDetMain"},
+
     ])
+    useEffect(() => {
+        async function carregarProdutos(){
+            try {
+                const querySnapshot = await getDocs(collection(bank, 'produtos'));
+                const lista = [];
+                querySnapshot.forEach((doc) => {
+                    lista.push({ id:doc.id, ...doc.data()});
+                
+                });
+                setProdutos(lista);
+
+            }
+            catch(error){
+                console.log("Erro ao buscar produto",error);
+            }
+        }
+        carregarProdutos();
+    }, []);
     return(
     <View style={styles.container}>
         <Text style={styles.text}>Produtos</Text>

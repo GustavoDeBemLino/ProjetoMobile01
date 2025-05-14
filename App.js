@@ -13,6 +13,7 @@ import Feed from './screens/feed.js'
 import Login from './screens/1login.js'
 import Home from './screens/home.js'
 import Counter from './screens/counter.js'
+import Signin from './screens/signin.js';
 
 function HomeTabs(){
   const Bottom = createBottomTabNavigator();
@@ -68,6 +69,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="1login" component={Login}/>
+        <Stack.Screen name='cadastro' component={Signin}/>
         <Stack.Screen name="home" component={HomeTabs}/>
 
 
