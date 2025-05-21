@@ -38,8 +38,7 @@ function HomeTabs(){
       )
   }}
     />
-    <Bottom.Screen name='CadastroProduct' componen={AddProduct}
-    options
+    <Bottom.Screen name='CadastroProduct' component={AddProduct}
 
     />
     <Bottom.Screen name="Home" component={Home}
@@ -62,8 +61,6 @@ function HomeTabs(){
               <MaterialCommunityIcons name="counter" size={24} color="black" />
             )
           }} />
-  
-    
   </Bottom.Navigator>
 )}
 
@@ -73,9 +70,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="1login" component={Login}/>
-        <Stack.Screen name='cadastro' component={Signin}/>
-        <Stack.Screen name="home" component={HomeTabs}/>
+        <Stack.Screen name="Login" component={Login}/>
+        <Stack.Screen name='Cadastro' component={Signin}/>
+        <Stack.Screen name="HomeTabs" component={HomeTabs}/>
 
 
       </Stack.Navigator>

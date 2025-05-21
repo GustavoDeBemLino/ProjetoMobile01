@@ -14,7 +14,7 @@ export default function Login({navigation}) {
   const VerificarUser = () => {
     signInWithEmailAndPassword(auth,email,senha).then(userCredential => {
       console.log('erro em logar', userCredential.user.email)
-      navigation.navigate('home');
+      navigation.navigate('HomeTabs');
     })
     .catch((error) => {
       console.log('erro em logar', error.message);

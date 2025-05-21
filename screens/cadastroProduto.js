@@ -1,14 +1,14 @@
 import { View, Text, StyleSheet,Button , TextInput, ImageBackground, TouchableOpacity } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import {auth} from '../controller.js';
+
+import {bank} from '../controller.js';
 import { useState } from 'react';
-import { collection } from 'firebase/firestore'
+import { collection, addDoc } from 'firebase/firestore'
 
 
 
-export default function AddProduct({}) {
+export default function AddProduct() {
   const [nome, setNome] = useState("");
   const [valor, setValor] = useState("");
   const [imagem, setImagem] = useState("");
@@ -51,14 +51,16 @@ export default function AddProduct({}) {
             style={styles.entrada}
             placeholder="nome"
             placeholderTextColor="#000"
+            value={nome}
+            onChangeText={setNome}
          
           />
           <TextInput
             style={styles.entrada}
             placeholder="valor"
             placeholderTextColor="#000"
-            value={email}
-            onChangeText={setEmail}
+            value={valor}
+            onChangeText={setValor}
 
           />
 
@@ -66,9 +68,9 @@ export default function AddProduct({}) {
             style={styles.entrada}
             placeholder="imagem"
             placeholderTextColor="#000"
-            value={senha}
-            onChangeText={setSenha}
-            secureTextEntry = {true}
+            value={imagem}
+            onChangeText={setImagem}
+          
           />
           </View>
 
@@ -76,7 +78,7 @@ export default function AddProduct({}) {
           title="Entrar"
           width="100px"
           color={'#FF0000'}
-          onPress={VerificarUser}
+          onPress={CadastrarProduct}
           />
 
           <TouchableOpacity onPress={() => navigation.navigate('cadastro')}>
