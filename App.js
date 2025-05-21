@@ -7,7 +7,9 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
+import { ProvideCart } from './components/providerCart.js';
 
+import Carrinho from './screens/carrinho.js';
 import Product from './screens/produto.js'
 import Feed from './screens/feed.js'
 import Login from './screens/1login.js'
@@ -39,7 +41,7 @@ function HomeTabs(){
   }}
     />
     <Bottom.Screen name='CadastroProduct' component={AddProduct}
-
+    
     />
     <Bottom.Screen name="Home" component={Home}
     options={{
@@ -61,6 +63,14 @@ function HomeTabs(){
               <MaterialCommunityIcons name="counter" size={24} color="black" />
             )
           }} />
+    <Bottom.Screen name="carrinho" component={Carrinho}
+    options={{
+      tabBarIcon: () =>(
+        <MaterialCommunityIcons name="cart" size={24} color="black" />
+      )
+    }} 
+    />
+    
   </Bottom.Navigator>
 )}
 
@@ -68,15 +78,15 @@ export default function App() {
   const Stack = createStackNavigator();
 
   return (
+    <ProvideCart>
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={Login}/>
         <Stack.Screen name='Cadastro' component={Signin}/>
         <Stack.Screen name="HomeTabs" component={HomeTabs}/>
-
-
       </Stack.Navigator>
     </NavigationContainer>
+    </ProvideCart>
   );
 }
 

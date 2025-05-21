@@ -1,7 +1,7 @@
-import {View, StyleSheet, Text, Image} from 'react-native'
+import {View, StyleSheet, Text, Image, Button} from 'react-native'
 
 
-export default function Cards({nome, valor, imagem}){
+export default function Cards({nome, valor, imagem, comprar}){
     
     return(
           <View style={styles.card}>
@@ -12,7 +12,10 @@ export default function Cards({nome, valor, imagem}){
                 <Text style={styles.name}>{nome}</Text>
                 <Text style={styles.value}>{valor}</Text>
             </View>
-                       
+            <Button
+            title="carrinho"
+            onPress={comprar}
+            />
           </View>      
     )
 
